@@ -39,5 +39,5 @@ The mechanics of this project involve:
 ## Submission
 1. Fork the repository and clone it to your local machine.
 2. Set up a GitHub Pages link for your project.
-3. Include the GitHub Pages link in your project's README.md.
+3. Include the GitHub Pages link in your project's LINK.md.
 4. Submit your GitHub repository link.
