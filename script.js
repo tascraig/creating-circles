@@ -1,39 +1,33 @@
-let body = document.querySelector("body");
 let button = document.querySelector("button");
-let counter = 0;
+let container = document.querySelector("#container");
 
 button.addEventListener("click", () => {
-    let container = document.querySelector(`.container${counter}`);
-    counter++;
-    const div = document.createElement("div");
-    div.setAttribute("class", `container${counter}`);
-    div.style.border = "15px solid transparent"; 
-    div.style.borderRadius = "50%"; 
-    div.style.height = "15%";
-    div.style.width = "15%";
-    div.style.backgroundColor = getRandomColor();
-    div.style.position =  randomize(); //??
-    container.appendChild(div);
-    if (div.offsetWidth < 150 || div.offsetHeight < 100) {
-     resetContainer();
-     }
-    div.style.borderColor = getRandomColor();
+    const circle = document.createElement("div");
+    
+    circle.classList.add("circle");
+    circle.style.backgroundColor = getRandomColor();
 
+    setCirclePositionAndSize(circle);
+    container.appendChild(circle);
 });
 
 function getRandomColor() {
     return "#" + Math.floor(Math.random() * 16777215).toString(16);
 }
 
-function resetContainer() {
-    const firstDiv = document.querySelector(".container1");
-    firstDiv.remove();
-    counter = 0;
-}
+function setCirclePositionAndSize(circle) {
+    const containerWidth = container.offsetWidth;
+    const containerHeight = container.offsetHeight;
 
+    const circleSize = Math.min(containerWidth, containerHeight) * 0.10; 
 
-//function to generate random circle parameters, x,y and radius
-     function randomize() {
-        return "#" + Math.floor(Math.random() * 501)
+    const randomX = Math.floor(Math.random() * 80);
+    const randomY = Math.floor(Math.random() * 80);
+
+    circle.style.width = circleSize + "px"
+    circle.style.height = circleSize + "px";
+    circle.style.left = randomX + "%";
+    circle.style.top = randomY + "%";
+    circle.style.borderRadius = "50%";
+    circle.style.position = "absolute";
 }
-  
